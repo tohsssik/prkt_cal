@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRKT Calculator Test</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 520px;
+      margin: 80px auto;
+      padding: 0 20px;
+      line-height: 1.5;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      margin: 18px 0;
+    }
+    input, button {
+      font: inherit;
+      padding: 10px 12px;
+    }
+    input {
+      width: 140px;
+    }
+    #result {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>PRKT Calculator Test</h1>
+  <p>输入两个数字，点击按钮计算它们的和。</p>
+
+  <div class="row">
+    <input id="a" type="number" step="any" placeholder="数字 A">
+    <input id="b" type="number" step="any" placeholder="数字 B">
+    <button id="calc">计算</button>
+  </div>
+
+  <div id="result">结果：—</div>
+
+  <script>
+    const a = document.getElementById('a');
+    const b = document.getElementById('b');
+    const result = document.getElementById('result');
+
+    document.getElementById('calc').addEventListener('click', () => {
+      if (a.value === '' || b.value === '') {
+        result.textContent = '结果：请先输入两个数字';
+        return;
+      }
+
+      const sum = Number(a.value) + Number(b.value);
+      result.textContent = `结果：${sum}`;
+    });
+  </script>
+</body>
+</html>
